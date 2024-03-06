@@ -19,7 +19,7 @@ export default function Home() {
                         voluptates unde!
                     </p>
                     <Button asChild className="mt-4">
-                        <Link href="/new-application">Get Started</Link>
+                        <Link href="/add-application">Get Started</Link>
                     </Button>
                 </div>
                 {/* @todo - hero image */}

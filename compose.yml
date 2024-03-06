@@ -1,0 +1,16 @@
+version: '3'
+services:
+    postgres:
+        image: postgres:latest
+        container_name: recruiter_container
+        ports:
+            - '9595:5432'
+        volumes:
+            - progresDB:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+volumes:
+    progresDB:
