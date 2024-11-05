@@ -1,16 +1,5 @@
-import CreateApplicationForm from '@/components/application-form';
-import {
-    dehydrate,
-    HydrationBoundary,
-    QueryClient,
-} from '@tanstack/react-query';
-
-function AddApplicationPage() {
-    const queryClient = new QueryClient();
+export default function AddApplicationPage() {
     return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
-            <CreateApplicationForm />
-        </HydrationBoundary>
-    );
+        <h1>Add Application</h1>
+    )
 }
-export default AddApplicationPage;
