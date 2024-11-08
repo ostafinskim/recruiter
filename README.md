@@ -32,7 +32,7 @@ Before running this project, ensure you have the following installed:
 
 Clone the Repository:
 ```
-git clone https://github.com/your-username/recruiter.git
+git clone https://github.com/ostafinskim/recruiter.git
 cd recruiter
 ```
 
