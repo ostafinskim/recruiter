@@ -14,7 +14,7 @@ export default function Home() {
               <p className='max-w-md mt-6'>It helps you keep track of the jobs you've applied to, the companies you've applied to, and the status of your applications.</p>
               <p className='max-w-md mt-6'>Get started today!</p>
               <Button asChild className='mt-6 self-start bg-[#404153]'>
-                <Link href='/add-application'>Get Started</Link>
+                <Link href='/new-recruitation'>Get Started</Link>
               </Button>
             </div>
               <Image src={LandingImg} alt='landing' className='block' />
