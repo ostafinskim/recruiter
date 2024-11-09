@@ -1,3 +1,9 @@
+import CreateRecrutationForm from "@/components/CreateRecrutationForm";
+
 export default function NewRecruitationPage() {
-  return <h1>New Recruitation</h1>;
+  return (
+    <>
+      <CreateRecrutationForm />
+    </>
+  );
 }
