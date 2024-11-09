@@ -46,12 +46,12 @@ export default function CreateRecrutationForm() {
         });
         return;
       }
-      toast({ description: 'job created' });
-      queryClient.invalidateQueries({ queryKey: ['jobs'] });
-      queryClient.invalidateQueries({ queryKey: ['stats'] });
+      toast({ description: '🎉 Recrutation created' });
+      queryClient.invalidateQueries({ queryKey: ['recruitments'] });
+      queryClient.invalidateQueries({ queryKey: ['statistic'] });
       queryClient.invalidateQueries({ queryKey: ['charts'] });
 
-      router.push('/jobs');
+      router.push('/recruitments');
       // form.reset();
     },
   });
