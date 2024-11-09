@@ -2,8 +2,8 @@ import * as z from "zod";
 
 export type RecrutationType = {
   id: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   clerkId: string;
   position: string;
   company: string;
@@ -21,7 +21,7 @@ export enum RecrutationStatus {
 export enum RecrutationMode {
   FULL_TIME = "Full time",
   PART_TIME = "Part time",
-  CONTRACT = 'Contract',
+  CONTRACT = "Contract",
   INTERNSHIP = "internship",
 }
 
