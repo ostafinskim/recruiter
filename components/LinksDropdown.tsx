@@ -13,7 +13,7 @@ export default function LinksDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="lg:hidden">
-        <Button size="icon">
+        <Button variant="outline" size="icon">
           <AlignLeft />
           <span className="sr-only">Toggle links</span>
         </Button>
