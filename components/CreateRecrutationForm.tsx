@@ -19,7 +19,7 @@ import {
 } from "./CreateRecrutationFormComponents";
 import { createRecrutation } from "../utils/actions";
 import { useToast } from "../hooks/use-toast";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export default function CreateRecrutationForm() {
