@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react";
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
-      <main className="grid lg:grid-cols-6">
+      <main className="w-full grid grid-cols-1 lg:grid-cols-[max-content_repeat(5,1fr)]">
         <div className="hidden lg:block lg:col-span-1 lg:min-h-screen">
           <Sidebar />
         </div>

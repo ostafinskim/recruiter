@@ -64,12 +64,12 @@ export default function CreateRecrutationForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-muted p-8 max-w-prose"
+        className="bg-muted p-8 rounded"
       >
         <h2 className="font-semibold sm:text-2xl text-4xl mb-6">
           📂 Create new recrutation
         </h2>
-        <div className="flex flex-col gap-6">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
 
           <CustomFormField name="position" control={form.control} />
           <CustomFormField name="company" control={form.control} />

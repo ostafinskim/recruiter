@@ -18,7 +18,7 @@ export default function Sidebar() {
             key={link.href}
             variant={pathname === link.href ? "default" : "link"}
           >
-            <Link href={link.href}>
+            <Link href={link.href} className="w-fit">
               {link.icon} <span className="capitalize">{link.label}</span>
             </Link>
           </Button>

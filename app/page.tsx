@@ -21,7 +21,7 @@ export default function Home() {
               </Button>
             </div>
               <Image src={LandingImg} alt='landing' className='block' />
-         </div>
+          </div>
         </section>
     </>
   );

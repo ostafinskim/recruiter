@@ -22,18 +22,18 @@ export enum RecrutationMode {
   FULL_TIME = "Full time",
   PART_TIME = "Part time",
   CONTRACT = "Contract",
-  INTERNSHIP = "internship",
+  INTERNSHIP = "Internship",
 }
 
 export const createAndEditRecrutationSchema = z.object({
   position: z.string().min(2, {
-    message: "Position must be at least 2 characters long",
+    message: "* Position must be at least 2 characters long",
   }),
   company: z.string().min(2, {
-    message: "Company must be at least 2 characters long",
+    message: "* Company must be at least 2 characters long",
   }),
   location: z.string().min(2, {
-    message: "Location must be at least 2 characters long",
+    message: "* Location must be at least 2 characters long",
   }),
   status: z.nativeEnum(RecrutationStatus),
   mode: z.nativeEnum(RecrutationMode),
