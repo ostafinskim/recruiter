@@ -4,7 +4,7 @@ import { getAll } from '@/utils/actions';
 
 export default function RecruitmentsPage() {
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['all-recruitments'],
+    queryKey: ['recruitments'],
     queryFn: async () => await getAll(),
   });
 
