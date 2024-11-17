@@ -35,3 +35,18 @@ export async function createRecrutation(
     return null;
   }
 }
+
+export async function getAll(): Promise<RecrutationType[]> {
+  const userId = await authAndRedirect();
+  try {
+    const items = await prisma.recrutation.findMany({
+      where: {
+        clerkId: userId,
+      },
+    });
+    return items as RecrutationType[];
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
