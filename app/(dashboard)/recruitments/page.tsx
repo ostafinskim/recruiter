@@ -1,28 +1,14 @@
 'use client';
-import { useQuery } from '@tanstack/react-query';
-import { getAll } from '@/utils/actions';
+import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
+import RecruitmentsList from '@/components/RecruitmentsList';
+import SearchForm from '@/components/SearchForm';
 
 export default function RecruitmentsPage() {
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['recruitments'],
-    queryFn: async () => await getAll(),
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading recruitments: {error.message}</div>;
-
+  const queryClient = new QueryClient();
   return (
-    <div>
-      {
-        data?.map((recruitment) => (
-          <div key={recruitment.id}>
-            <h2>{recruitment.position}</h2>
-            <p>{recruitment.company}</p>
-            <p>{recruitment.location}</p>
-            <p>{recruitment.status}</p>
-          </div>
-        ))
-      }
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <SearchForm />
+      <RecruitmentsList />
+    </HydrationBoundary>
   );
 }

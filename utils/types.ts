@@ -13,9 +13,9 @@ export type RecrutationType = {
 };
 
 export enum RecrutationStatus {
-  PENDING = "Pending",
-  INTERVIEW = "Interview",
-  REJECTED = "Rejected",
+  PENDING = "pending",
+  INTERVIEW = "interview",
+  REJECTED = "rejected",
 }
 
 export enum RecrutationMode {
@@ -23,6 +23,13 @@ export enum RecrutationMode {
   PART_TIME = "Part time",
   CONTRACT = "Contract",
   INTERNSHIP = "Internship",
+}
+
+export type GetAllRecrutationType = {
+  search?: string;
+  recrutationStatus?: string;
+  page?: number;
+  limit?: number;
 }
 
 export const createAndEditRecrutationSchema = z.object({
