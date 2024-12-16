@@ -39,10 +39,10 @@ export async function createRecrutation(
   }
 }
 
-export async function getAllRecrutations({ 
-  search, 
+export async function getAllRecrutations({
+  search,
   recrutationStatus,
-  page = 1, 
+  page = 1,
   limit = 10
 }: GetAllRecrutationType): Promise<{
   recrutations: RecrutationType[];
@@ -52,7 +52,7 @@ export async function getAllRecrutations({
 }> {
   const userId = await authAndRedirect();
   try {
-    let where : Prisma.RecrutationWhereInput = {
+    let where: Prisma.RecrutationWhereInput = {
       clerkId: userId,
     };
 
@@ -93,8 +93,8 @@ export async function getAllRecrutations({
         createdAt: "desc",
       },
     });
-    
-    const totalCount : number = await prisma.recrutation.count({
+
+    const totalCount: number = await prisma.recrutation.count({
       where,
     });
 
@@ -107,7 +107,7 @@ export async function getAllRecrutations({
   }
 }
 
-export async function deleteRecrutation(id: string) : Promise<RecrutationType | null> {
+export async function deleteRecrutation(id: string): Promise<RecrutationType | null> {
   const userId = await authAndRedirect();
   try {
     const recrutation: RecrutationType = await prisma.recrutation.delete({
@@ -119,6 +119,49 @@ export async function deleteRecrutation(id: string) : Promise<RecrutationType | 
     return recrutation;
   } catch (error) {
     console.error(error)
+    return null;
+  }
+}
+
+export async function getSingleRecrutation(id: string): Promise<RecrutationType | null> {
+  let recrutation: RecrutationType | null = null;
+  const userId = await authAndRedirect();
+  try {
+    recrutation = await prisma.recrutation.findFirst({
+      where: {
+        id,
+        clerkId: userId,
+      },
+    });
+    return recrutation;
+  } catch (error) {
+    recrutation = null;
+  }
+  if (!recrutation) {
+    redirect('/recrutations');
+  }
+  return recrutation;
+}
+
+export async function updateRecrutation(
+  id: string,
+  values: CreateAndEditRecrutationType
+): Promise<RecrutationType | null> {
+
+  const userId = await authAndRedirect();
+
+  try {
+    const recrutation: RecrutationType = await prisma.recrutation.update({
+      where: {
+        id,
+        clerkId: userId,
+      },
+      data: {
+        ...values,
+      },
+    });
+    return recrutation;
+  } catch (error) {
     return null;
   }
 }

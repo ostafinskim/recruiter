@@ -44,7 +44,7 @@ export default function RecrutationCard({
         </CardContent>
         <CardFooter className="flex gap-4">
           <Button asChild size="sm">
-            <Link href={`/jobs/${recrutation.id}`}>edit</Link>
+            <Link href={`/recruitments/${recrutation.id}`}>edit</Link>
           </Button>
           <DeleteRecrutationButton id={recrutation.id} />
         </CardFooter>
