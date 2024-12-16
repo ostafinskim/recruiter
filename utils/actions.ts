@@ -10,6 +10,7 @@ import {
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { Prisma } from "@prisma/client";
+import { LazyResult } from "postcss";
 
 async function authAndRedirect(): Promise<string> {
   const { userId } = await auth();
@@ -103,5 +104,21 @@ export async function getAllRecrutations({
   } catch (error) {
     console.log(error);
     return { recrutations: [], totalCount: 0, totalPages: 0, page: 1 };
+  }
+}
+
+export async function deleteRecrutation(id: string) : Promise<RecrutationType | null> {
+  const userId = await authAndRedirect();
+  try {
+    const recrutation: RecrutationType = await prisma.recrutation.delete({
+      where: {
+        id,
+        clerkId: userId,
+      },
+    });
+    return recrutation;
+  } catch (error) {
+    console.error(error)
+    return null;
   }
 }
