@@ -12,9 +12,6 @@ body {
   }
 }
 
-
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -72,8 +69,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -81,4 +76,21 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.leaflet-control-geosearch form {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  margin: 0 auto;
+}
+
+.leaflet-control-geosearch form input {
+  width: 100%;
+}
+
+.leaflet-control-geosearch .leaflet-bar-part {
+  display: none;
 }
